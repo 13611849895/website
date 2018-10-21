@@ -1,22 +1,14 @@
 <template>
   <div id="app">
-    <v-header></v-header>
-    <v-main></v-main>
-    <v-footer></v-footer>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import VHeader from './components/header/header'
-import VMain from './components/main/main'
-import VFooter from './components/footer/footer'
 export default {
-  name: 'App',
-  components: {
-    VHeader,
-    VMain,
-    VFooter
-  }
+  name: 'App'
 }
 </script>
 
@@ -24,6 +16,15 @@ export default {
 *{
   margin: 0;
   padding: 0;
+}
+bady {
+  font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -33,4 +34,5 @@ export default {
   color: #2c3e50;
   background-color: #e1e1e1;
 }
+
 </style>

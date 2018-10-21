@@ -9,22 +9,22 @@
         <input type="text" name="q" id="q" class="search-query span3"></form>
         <ul class="nav pull-right">
           <li>
-            <a href="/">首页</a>
+            <router-link to="/">首页</router-link>
           </li>
           <li>
-            <a href="/">新手入门</a>
+            <router-link to="/novice">新手入门</router-link>
           </li>
           <li>
-            <a href="/">API</a>
+            <router-link to="/interface">API</router-link>
           </li>
           <li>
-            <a href="/">关于</a>
+            <router-link to="/about">关于</router-link>
           </li>
           <li>
-            <a href="/">注册</a>
+            <router-link to="/register">注册</router-link>
           </li>
           <li>
-            <a href="/">登录</a>
+            <router-link to="/entry">登录</router-link>
           </li>
         </ul>
       </div>
