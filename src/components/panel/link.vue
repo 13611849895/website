@@ -2,7 +2,7 @@
  <div class="panel">
    <div class="inner">
     <a href="/">
-      <img src="https://static.cnodejs.org/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_" alt="">
+      <img src="https://static.cnodejs.org/Fv9R31Y6ySKKJi95ldk9TRkJ7o5O" alt="">
     </a>
     <a href="/">
       <img src="https://render.alipay.com/p/s/taobaonpm_click/image_25" alt="">
@@ -11,7 +11,7 @@
       <img src="https://static.cnodejs.org/FlajCCXkxZaOsuWp3k0iaiqfrJaS" alt="">
     </a>
     <a href="/">
-      <img class="lmg" src="https://static.cnodejs.org/Fv9R31Y6ySKKJi95ldk9TRkJ7o5O" alt="">
+      <img class="lmg" src="https://static.cnodejs.org/Fn4D6BhOTz1IswvmzeZ1q7QW1ls_" alt="">
     </a>
    </div>
  </div>

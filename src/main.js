@@ -5,29 +5,22 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import axios from 'axios'
+import moment from 'moment'
 // Vue.use(axios)
+Vue.use(moment)
 Vue.prototype.$axios = axios
+Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().replace(/hours?/, '小时').replace('ago', '前').replace(/days?/, '天').replace(/minutes?/, '分钟').replace(/\ban?/, '1').replace(/months?/, '个月').replace(/\byears?/, '年').replace(/\s/g, '').replace('fewseconds', '分钟')
 Vue.use(Vuex)
 Vue.config.productionTip = false
 
-const store = new Vuex.Store({
+let store = new Vuex.Store({
   // 全局状态
   state: {
     state: {
       tab: 'all',
       articleList: [],
-      collectTopics: [],
       isLoading: true,
-      isMore: false,
-      isShowAsideMenu: false,
-      isShowLogin: false,
-      isShowInfo: false,
-      isShowMsg: false,
-      isShowNewArticle: false,
-      isShowAbout: false,
-      scrollTop: 0,
-      // userInfo: localStorage.userInfo && JSON.parse(localStorage.userInfo) || {avatar_url: '', id: '', loginname: '', success: false},
-      ak: localStorage.ak || ''
+      isShowLogin: false
     }
   },
   mutations: {
@@ -35,42 +28,6 @@ const store = new Vuex.Store({
       state.isLoading = payload.hasOwnProperty('isLoading') ? payload.isLoading : state.isLoading
       state.tab = payload.type || state.tab
       state.articleList = payload.articleList || state.articleList
-    },
-    viewArcticle (state, flag) {
-      state.isLoading = flag
-    },
-    changeMore (state, flag) {
-      state.isMore = flag
-    },
-    changeScrollTop (state, scrollTop) {
-      state.scrollTop = scrollTop
-    },
-    showAsideMenu (state, flag) {
-      state.isShowAsideMenu = flag
-    },
-    // showLogin (state, flag) {
-    //   state.isShowLogin = flag
-    // },
-    showInfo (state, flag) {
-      state.isShowInfo = flag
-    },
-    showMsg (state, flag) {
-      state.isShowMsg = flag
-    },
-    showNewArticle (state, flag) {
-      state.isShowNewArticle = flag
-    },
-    showAbout (state, flag) {
-      state.isShowAbout = flag
-    },
-    updateUserInfo (state, userInfo) {
-      state.userInfo = userInfo
-    },
-    updateAk (state, ak) {
-      state.ak = ak
-    },
-    updateCollect (state, collectTopics) {
-      state.collectTopics = collectTopics
     }
   }
 })

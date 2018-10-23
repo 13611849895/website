@@ -50,6 +50,7 @@ export default {
     clear: both;
     background: #fff;
     clear: both;
+    height: 190px;
   }
   .f-main {
     width: 90%;

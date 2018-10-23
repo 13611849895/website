@@ -37,6 +37,6 @@ export default {
     padding: 0;
     margin-right: 305px;
     background: #fff;
-    min-height: 2000px;
+    /* min-height: 2000px; */
   }
 </style>

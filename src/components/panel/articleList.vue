@@ -4,7 +4,7 @@
       <div class="in-list">
         <div  class="cell" >
           <a href="/" class="user-avatar pull-left">
-            <img src="https://avatars1.githubusercontent.com/u/1147375?v=4&s=120" alt="">
+            <img :src="item.author.avatar_url" alt="">
           </a>
           <span class="replay pull-left" >
             <span class="replies" title="回复数">{{item.reply_count}}</span>
@@ -12,12 +12,12 @@
             <span class="visits" title="点击数">{{item.visit_count}}</span>
           </span>
           <a href="/" class="last-time pull-right">
-            <img class="avatar" src="https://avatars1.githubusercontent.com/u/43145163?v=4&s=120" alt="">
-            <span class="active-time">3 天前</span>
+            <img class="avatar" :src="item.author.avatar_url" alt="">
+            <span class="active-time">{{changeTime(item.last_reply_at)}}</span>
           </a>
           <div class="wrapper">
-            <span class="put-top"></span>
-            <a href="/" title="求tittle">{{item.title}}</a>
+            <span class="put-top" :class="{special: item.top || item.good}">{{(item.top ? '置顶' : '')||(item.good ? "精华" : "")||types[item.tab]}}</span>
+            <a href="/" class="con-inner" title="">{{item.title}}</a>
           </div>
         </div>
       </div>
@@ -29,6 +29,10 @@
 export default {
   data () {
     return {
+      types: {
+        ask: '问答',
+        share: '分享'
+      }
     }
   },
   components: {
@@ -46,7 +50,7 @@ export default {
     }
   },
   created () {
-    this.$store.commit('changeTab', {isLoading: true})
+    this.$store.commit('changeTab', {isLoading: false})
     this.$axios.get('https://cnodejs.org/api/v1/topics')
       .then(result => result.data.data)
       .then(articleList => this.$store.commit('changeTab', {articleList, isLoading: true}))
@@ -120,24 +124,41 @@ export default {
     white-space: nowrap;
   }
   .wrapper {
-
     white-space: nowrap;
     text-overflow: ellipsis;
     position: absolute;
     margin-left: 100px;
   }
   .put-top {
+    /* background:#80bd01;
+    padding: 2px 4px;
+    color: #fff;
+    font-size: 12px; */
+    background-color: #e5e5e5;
+    padding: 2px 5px;
+    font-size: 80%;
+    color: #9c9c9c;
+    border-radius: 5px;
+    margin-right: 3px;
+  }
+  .special {
     background:#80bd01;
     padding: 2px 4px;
     color: #fff;
     font-size: 12px;
   }
-  .wrapper a {
+  .wrapper .con-inner {
     color: #888;
     font-size: 16px;
     line-height: 30px;
     display: inline-block;
     vertical-align: middle;
+    /* max-width: 70%; */
+    width: 700px;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    text-align: left;
+    overflow: hidden;
   }
   .wrapper a:hover {
     text-decoration: underline;
