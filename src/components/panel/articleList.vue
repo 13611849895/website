@@ -17,7 +17,8 @@
           </a>
           <div class="wrapper">
             <span class="put-top" :class="{special: item.top || item.good}">{{(item.top ? '置顶' : '')||(item.good ? "精华" : "")||types[item.tab]}}</span>
-            <a href="/" class="con-inner" title="">{{item.title}}</a>
+            <!-- <a href="/" class="con-inner" title="">{{item.title}}</a> -->
+            <router-link :to="{name: 'article', params: {id: item.id}}" class="con-inner">{{item.title}}</router-link>
           </div>
         </div>
       </div>

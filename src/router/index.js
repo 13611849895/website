@@ -7,6 +7,7 @@ import Interface from '../pages/Interface/Interface'
 import Entry from '../pages/Entry/Entry'
 import Register from '../pages/Register/Register'
 import Home from '../pages/Home/Home'
+import Article from '../pages/article/article'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/article/:id',
+      name: 'article',
+      component: Article
     }
   ]
 })
