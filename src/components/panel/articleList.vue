@@ -38,23 +38,16 @@ export default {
   components: {
 
   },
-  computed: {
-    tab () {
-      return this.$store.state.tab
-    },
-    articleList () {
-      return this.$store.state.articleList
-    },
-    isMore () {
-      return this.$store.state.isMore
-    }
-  },
   created () {
-    this.$store.commit('changeTab', {isLoading: false})
     this.$axios.get('https://cnodejs.org/api/v1/topics')
       .then(result => result.data.data)
-      .then(articleList => this.$store.commit('changeTab', {articleList, isLoading: true}))
+      .then(articleList => this.$store.commit('showList', {articleList, isShow: true}))
     // console.log(artList)
+  },
+  computed: {
+    articleList () {
+      return this.$store.state.articleList
+    }
   }
 }
 </script>

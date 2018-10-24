@@ -13,20 +13,16 @@ Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().repl
 Vue.use(Vuex)
 Vue.config.productionTip = false
 
-let store = new Vuex.Store({
+var store = new Vuex.Store({
   // 全局状态
   state: {
     state: {
-      tab: 'all',
       articleList: [],
-      isLoading: true,
-      isShowLogin: false
+      isShow: false
     }
   },
   mutations: {
-    changeTab (state, payload) {
-      state.isLoading = payload.hasOwnProperty('isLoading') ? payload.isLoading : state.isLoading
-      state.tab = payload.type || state.tab
+    showList (state, payload) {
       state.articleList = payload.articleList || state.articleList
     }
   }
