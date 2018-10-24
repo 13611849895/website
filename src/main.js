@@ -11,27 +11,13 @@ Vue.use(moment)
 Vue.prototype.$axios = axios
 Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().replace(/hours?/, '小时').replace('ago', '前').replace(/days?/, '天').replace(/minutes?/, '分钟').replace(/\ban?/, '1').replace(/months?/, '个月').replace(/\byears?/, '年').replace(/\s/g, '').replace('fewseconds', '分钟')
 Vue.use(Vuex)
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
 
-var store = new Vuex.Store({
-  // 全局状态
-  state: {
-    state: {
-      articleList: [],
-      isShow: false
-    }
-  },
-  mutations: {
-    showList (state, payload) {
-      state.articleList = payload.articleList || state.articleList
-    }
-  }
-})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  store,
+  // store,
   components: { App },
   template: '<App/>'
 })

@@ -29,25 +29,16 @@
 export default {
   data () {
     return {
+      articleList: [],
       types: {
         ask: '问答',
         share: '分享'
       }
     }
   },
-  components: {
-
-  },
   created () {
     this.$axios.get('https://cnodejs.org/api/v1/topics')
-      .then(result => result.data.data)
-      .then(articleList => this.$store.commit('showList', {articleList, isShow: true}))
-    // console.log(artList)
-  },
-  computed: {
-    articleList () {
-      return this.$store.state.articleList
-    }
+      .then(result => { this.articleList = result.data.data })
   }
 }
 </script>
