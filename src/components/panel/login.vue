@@ -8,7 +8,7 @@
         或
         <a href="/"> 注册 </a>，也可以
         <a href="/">
-          <span class="span-info">通过Github 登录</span>
+          <router-link to="/entry" class="span-info">点击登录</router-link>
         </a>
      </div>
    </div>
@@ -47,7 +47,8 @@ export default {
     color: #778087;
     text-decoration: none;
   }
-  .span-info {
+  .inner .span-info {
+    text-align: center;
     display: block;
     padding: 3px 10px;
     background-color: #5bc0de;

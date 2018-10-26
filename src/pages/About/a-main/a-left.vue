@@ -83,7 +83,7 @@ export default {
     margin: 15px auto;
     max-width: 1400px;
     min-width: 960px;
-    min-height: 400px;
+    min-height: 700px;
   }
   .content {
     padding: 0;

@@ -8,6 +8,7 @@ import Entry from '../pages/Entry/Entry'
 import Register from '../pages/Register/Register'
 import Home from '../pages/Home/Home'
 import Article from '../pages/article/article'
+import User from '../pages/User/User'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/article/:id',
       name: 'article',
       component: Article
+    },
+    {
+      path: '/user',
+      name: 'User',
+      component: User
     }
   ]
 })
