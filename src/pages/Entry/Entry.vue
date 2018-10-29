@@ -38,11 +38,11 @@ export default {
     login () {
       this.$axios.post('https://cnodejs.org/api/v1/accesstoken', {
         accesstoken: this.accesstoken
-      }).then((res) => {
+      }).then(res => {
         this.$store.dispatch('login', res)
         localStorage.setItem('res', JSON.stringify(res.data))
         this.$router.push('/')
-        this.close()
+        // this.close()
       }).catch((err) => {
         console.log(err)
       })

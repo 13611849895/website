@@ -6,7 +6,7 @@
           <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt="">
         </a>
         <form action="/search" id="search_form" class="navbar-search">
-        <input type="text" name="q" id="q" class="search-query span3"></form>
+        <input type="text"  class="search-query span3"></form>
         <ul class="nav pull-right">
           <li>
             <router-link to="/">首页</router-link>
@@ -14,17 +14,26 @@
           <li>
             <router-link to="/novice">新手入门</router-link>
           </li>
+          <li v-show="storage">
+            <router-link to="/user">未读消息</router-link>
+          </li>
           <li>
             <router-link to="/interface">API</router-link>
           </li>
           <li>
             <router-link to="/about">关于</router-link>
           </li>
-          <li>
+          <li v-show="!storage">
             <router-link to="/register">注册</router-link>
           </li>
-          <li>
+          <li v-show="!storage">
             <router-link to="/entry">登录</router-link>
+          </li>
+          <li v-show="storage">
+            <router-link to="/user">设置</router-link>
+          </li>
+          <li v-show="storage" @click="loginOut">
+            <router-link to="/" >退出</router-link>
           </li>
         </ul>
       </div>
@@ -36,9 +45,26 @@
 export default {
   data () {
     return {
+      storage: {}
     }
   },
-  components: {
+  methods: {
+    getStorage () {
+      this.storage = localStorage.getItem('res')
+    },
+    loginOut () {
+      this.storage = localStorage.removeItem('res')
+      this.$router.push('/')
+    }
+  },
+  created () {
+    this.getStorage()
+    console.log(this.storage)
+  },
+  watch: {
+    '$route' (to, from) {
+      this.$router.go(0)
+    }
   }
 }
 </script>

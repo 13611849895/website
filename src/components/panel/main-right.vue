@@ -1,6 +1,7 @@
 <template>
   <div class="sidebar">
-    <login></login>
+    <login v-show="!storage"></login>
+    <info v-show="storage"></info>
     <links></links>
     <answer></answer>
     <integral></integral>
@@ -11,20 +12,39 @@
 
 <script>
 import login from '../panel/login'
+import info from '../panel/info'
 import links from '../panel/link'
 import answer from '../panel/answer'
 import integral from '../panel/integral'
 import friend from '../panel/friend'
 import code2 from '../panel/code'
 export default {
+  data () {
+    return {
+      storage: {}
+    }
+  },
   components: {
     login,
     links,
     answer,
     integral,
     friend,
-    code2
-
+    code2,
+    info
+  },
+  methods: {
+    getStorage () {
+      this.storage = localStorage.getItem('res')
+    }
+  },
+  created () {
+    this.getStorage()
+  },
+  watch: {
+    '$route' (to, from) {
+      this.$router.go(0)
+    }
   }
 }
 </script>

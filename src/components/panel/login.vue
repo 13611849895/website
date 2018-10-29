@@ -1,5 +1,5 @@
 <template>
- <div class="panel">
+ <div class="log-panel">
    <div class="inner">
      <p>CNode:Node.js专业中文社区</p>
      <div>
@@ -17,19 +17,11 @@
 
 <script>
 export default {
-  data () {
-    return {
-
-    }
-  },
-  components: {
-
-  }
 }
 </script>
 
 <style>
-  .panel {
+  .log-panel {
     margin-bottom: 13px;
     font-size: 13px;
   }

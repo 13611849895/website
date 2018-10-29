@@ -1,7 +1,7 @@
 <template>
  <div class="panel">
    <div class="hdr">
-     <span class="no-answer">无人回复的话题</span>
+     <span class="no-answer">geren</span>
    </div>
    <div class="inner">
      <ul class="unstyled">
