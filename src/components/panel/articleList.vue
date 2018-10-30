@@ -1,5 +1,13 @@
 <template>
   <div>
+     <div class="con-header">
+    <a href="/" :class="{active: active === index}">全部</a>
+    <a href="/" :class="{active: active === index}">精华</a>
+    <a href="/" :class="{active: active === index}">分享</a>
+    <a href="/" :class="{active: active === index}">问答</a>
+    <a href="/" :class="{active: active === index}">招聘</a>
+    <a href="/" :class="{active: active === index}">客户端测试</a>
+  </div>
     <div class="con-inner" v-for="(item, index) of articleList" :key="index">
       <div class="in-list">
         <div  class="cell" >
@@ -45,7 +53,7 @@ export default {
 </script>
 
 <style>
-    .content .cell   {
+  .content .cell   {
     padding-right: 10px;
     background: #fff
   }
@@ -58,6 +66,19 @@ export default {
   }
   .con-inner {
     line-height: 2em;
+  }
+  .con-header {
+    text-align: left;
+    padding: 10px;
+    background: #f6f6f6;
+    border: 3px 3px 0 0
+  }
+  .tab {
+    text-decoration: none;
+    color:  #80bd01;
+    padding: 3px 4px;
+    border-radius: 3px;
+    margin: 0 10px;
   }
   .pull-left {
     float: left;

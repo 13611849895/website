@@ -39,7 +39,7 @@ export default {
       this.$axios.post('https://cnodejs.org/api/v1/accesstoken', {
         accesstoken: this.accesstoken
       }).then(res => {
-        this.$store.dispatch('login', res)
+        // this.$store.dispatch('login', res)
         localStorage.setItem('res', JSON.stringify(res.data))
         this.$router.push('/')
         // this.close()
