@@ -37,11 +37,6 @@ export default {
   created () {
     this.getStorage()
     console.log(this.storage.avatar_url)
-  },
-  watch: {
-    '$route' (to, from) {
-      this.$router.go(0)
-    }
   }
 }
 </script>

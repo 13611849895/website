@@ -9,6 +9,7 @@ import Register from '../pages/Register/Register'
 import Home from '../pages/Home/Home'
 import Article from '../pages/article/article'
 import User from '../pages/User/User'
+import publish from '../components/panel/editor.vue'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       path: '/user',
       name: 'User',
       component: User
+    },
+    {
+      path: '/publish',
+      name: 'publish',
+      component: publish
     }
   ]
 })

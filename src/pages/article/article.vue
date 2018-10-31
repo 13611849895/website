@@ -70,11 +70,6 @@ export default {
   },
   mounted () {
     console.log(this.articleMain)
-  },
-  watch: {
-    '$route' (to, from) {
-      this.$router.go(0)
-    }
   }
 }
 </script>

@@ -51,6 +51,9 @@ export default {
         },
         {
           text: '招聘'
+        },
+        {
+          text: '客户端测试'
         }
       ],
       types: {
@@ -90,6 +93,10 @@ export default {
       }
       if (index === 4) {
         this.tabName = 'job'
+        this.getList(this.tabName)
+      }
+      if (index === 5) {
+        this.tabName = 'dev'
         this.getList(this.tabName)
       }
       this.active = index

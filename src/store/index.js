@@ -8,7 +8,7 @@ const userStore = new Vuex.Store({
     userInfo: {}
   },
   mutations: {
-    setUserInfo (state, userInfo) {
+    SETUSERINFO (state, userInfo) {
       state.userInfo = userInfo
     }
   },
