@@ -1,13 +1,8 @@
 <template>
   <div>
-     <div class="con-header">
-    <a href="/" :class="{active: active === index}">全部</a>
-    <a href="/" :class="{active: active === index}">精华</a>
-    <a href="/" :class="{active: active === index}">分享</a>
-    <a href="/" :class="{active: active === index}">问答</a>
-    <a href="/" :class="{active: active === index}">招聘</a>
-    <a href="/" :class="{active: active === index}">客户端测试</a>
-  </div>
+    <div class="con-header">
+      <a @click="toogle(index)" v-for="(item, index) in tabs" :class="{active: active === index}" :key="index">{{item.text}}</a>
+    </div>
     <div class="con-inner" v-for="(item, index) of articleList" :key="index">
       <div class="in-list">
         <div  class="cell" >
@@ -39,15 +34,69 @@ export default {
   data () {
     return {
       articleList: [],
+      tabName: '',
+      active: 0,
+      tabs: [
+        {
+          text: '全部'
+        },
+        {
+          text: '精华'
+        },
+        {
+          text: '分享'
+        },
+        {
+          text: '问答'
+        },
+        {
+          text: '招聘'
+        }
+      ],
       types: {
         ask: '问答',
-        share: '分享'
+        share: '分享',
+        good: '精华'
       }
     }
   },
+  methods: {
+    getList (index) {
+      this.$axios.get('https://cnodejs.org/api/v1/topics', {
+        params: {
+          tab: index
+        }
+      }).then(response => {
+        this.articleList = response.data.data
+      })
+    },
+    toogle (index) {
+      // var tabName
+      if (index === 0) {
+        this.tabName = ''
+        this.getList(this.tabName)
+      }
+      if (index === 1) {
+        this.tabName = 'good'
+        this.getList(this.tabName)
+      }
+      if (index === 2) {
+        this.tabName = 'share'
+        this.getList(this.tabName)
+      }
+      if (index === 3) {
+        this.tabName = 'ask'
+        this.getList(this.tabName)
+      }
+      if (index === 4) {
+        this.tabName = 'job'
+        this.getList(this.tabName)
+      }
+      this.active = index
+    }
+  },
   created () {
-    this.$axios.get('https://cnodejs.org/api/v1/topics')
-      .then(result => { this.articleList = result.data.data })
+    this.getList()
   }
 }
 </script>
@@ -73,12 +122,20 @@ export default {
     background: #f6f6f6;
     border: 3px 3px 0 0
   }
-  .tab {
-    text-decoration: none;
-    color:  #80bd01;
-    padding: 3px 4px;
-    border-radius: 3px;
+  .con-header a {
     margin: 0 10px;
+    color: #80bd01;
+    text-decoration: none;
+  }
+  .con-header a:hover {
+    /* color: #005580; */
+    cursor: pointer;
+  }
+  .con-header .active {
+    color: #fff;
+    padding: 3px 4px;
+    background-color: #80bd01;
+    border-radius: 3px;
   }
   .pull-left {
     float: left;
