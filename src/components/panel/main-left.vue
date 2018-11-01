@@ -1,13 +1,5 @@
 <template>
 <div >
-  <!-- <div class="con-header">
-    <a href="/" class="tab">全部</a>
-    <a href="/" class="tab">精华</a>
-    <a href="/" class="tab">分享</a>
-    <a href="/" class="tab">问答</a>
-    <a href="/" class="tab">招聘</a>
-    <a href="/" class="tab">客户端测试</a>
-  </div> -->
   <article-list></article-list>
 </div>
 </template>

@@ -23,5 +23,7 @@ export default {
 </script>
 
 <style>
-
+  .home {
+    background-color: #e1e1e1;
+  }
 </style>

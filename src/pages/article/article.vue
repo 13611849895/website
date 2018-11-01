@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="article">
     <v-header></v-header>
     <div class="main">
       <div class="content-right">
@@ -38,6 +38,9 @@
             <div v-html="item.content" class="comment-content"></div>
           </div>
         </div>
+        <div class="panel">
+          <edtior></edtior>
+        </div>
       </div>
     </div>
     <v-footer></v-footer>
@@ -49,6 +52,7 @@ import VHeader from '../../components/header/header'
 import VFooter from '../../components/footer/footer'
 import alink from '../../components/panel/link'
 import answer from '../../components/panel/answer'
+import edtior from '../../components/panel/editor'
 export default {
   // name: article,
   data () {
@@ -62,7 +66,8 @@ export default {
     VHeader,
     VFooter,
     alink,
-    answer
+    answer,
+    edtior
   },
   created () {
     this.$axios.get('https://cnodejs.org/api/v1/topic/' + this.id)
@@ -70,11 +75,19 @@ export default {
   },
   mounted () {
     console.log(this.articleMain)
+  },
+  watch: {
+    '$route' (to, from) {
+      this.$router.go(0)
+    }
   }
 }
 </script>
 
 <style>
+.article {
+  background-color: #e1e1e1;
+}
   .main {
     position: relative;
     margin: 15px auto;

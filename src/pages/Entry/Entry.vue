@@ -40,7 +40,15 @@ export default {
         accesstoken: this.accesstoken
       }).then(res => {
         // this.$store.dispatch('login', res)
-        localStorage.setItem('res', JSON.stringify(res.data))
+        let user = {
+          loginname: res.data.loginname,
+          avatar_url: res.data.avatar_url,
+          userId: res.data.id,
+          token: this.accesstoken
+        }
+        localStorage.user = JSON.stringify(user) // 把登陆的信息保存在localSorage中 （后加的： 里面添加了 accesstoken）
+        // this.$store.dispatch('setUserInfo', user)
+        localStorage.setItem('res', JSON.stringify(res.data)) // （先写的）
         this.$router.push('/')
         // this.close()
       }).catch((err) => {

@@ -1,7 +1,7 @@
 <template>
   <div class="panel">
     <div class="inner">
-      <router-link to="/publish">
+      <router-link to="/newarticle">
         <span class="pub">发布话题</span>
       </router-link>
     </div>
@@ -29,9 +29,6 @@ export default {
     line-height: 2em;
     text-align: left;
   }
-  .inner a {
-    color: #fff;
-  }
   .pub {
     border-radius: 3px;
     background-color: #80bd01;
@@ -39,5 +36,7 @@ export default {
     padding: 3px 10px;
     font-size: 14px;
     cursor: pointer;
+    color: #fff;
+
   }
 </style>

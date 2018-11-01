@@ -45,12 +45,14 @@
 export default {
   data () {
     return {
-      storage: {}
+      storage: {},
+      storage1: {}
     }
   },
   methods: {
     getStorage () {
       this.storage = localStorage.getItem('res')
+      this.storage1 = JSON.parse(localStorage.getItem('user'))
     },
     loginOut () {
       this.storage = localStorage.removeItem('res')
@@ -60,12 +62,13 @@ export default {
   created () {
     this.getStorage()
     console.log(this.storage)
-  },
-  watch: {
-    '$route' (to, from) {
-      this.$router.go(0)
-    }
+    console.log(this.storage1.token)
   }
+  // watch: {
+  //   '$route' (to, from) {
+  //     this.$router.go(0)
+  //   }
+  // }
 }
 </script>
 
